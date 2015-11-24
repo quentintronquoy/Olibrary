@@ -18,6 +18,7 @@ $tronquoy = "noob";
  ?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
 	<title>OLibrary</title>
 	<link rel="icon" href="./images/favicon.ico" />
 	<meta name="keywords" content="" />
@@ -32,10 +33,7 @@ $tronquoy = "noob";
 		<div class="logo">
         	<!-- <span class="icon icon-cog"></span> -->
 			
-			<img id="logo" src="images/logo.png">
-			<a href="./index.php" class="ol">OLibrary</a>
-
-			<?php echo "quentin est un gros ".$tronquoy; ?>
+			
 			
 			<div class="clear"></div>
-		
+			<img id="logo" src="images/logo.png">
