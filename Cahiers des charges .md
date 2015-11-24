@@ -1,4 +1,5 @@
 SIGB : 
+
 -	Espace sécurisé par un couple nom d'utilisateur/mot de passe. Utilisateurs administrables depuis l'interface.
 -	Gestion (ajout, modification, suppression) de notices (titre, auteur(s), éditeur, collection, ISBN,…) et exemplaires associés (date d'achat, coût, fournisseur, emplacement, côte,…)
 -	Gestion des autorités : auteur (nom, prénom, dates de naissance et décès), éditeurs (nom, coordonnées), fournisseurs (nom, coordonnées), collections (liaison avec les éditeurs),…
@@ -11,6 +12,7 @@ OPAC :
 -	Bonus : espace « adhérents » (prêts en cours, réservation de documents,…)
 
 Réponse :
+
 -	Page d’accueil pour permettre la présentation de la bibliothèque avec recherche et input de connexion pour les utilisateurs et administrateur avec un nom de compte et mot de passe.
 -	L’administrateur peut sur sa page après la connexion:
 o	 ajouter de nouveaux livres dans la base de données.
