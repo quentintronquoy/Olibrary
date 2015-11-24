@@ -1,0 +1,114 @@
+#menu
+	{
+		height: 60px;
+	}
+	
+	#menu ul
+	{
+		display: inline-block;
+		padding: 0em 2em;
+		text-align: center;
+	}
+	
+	#menu li
+	{
+		display: inline-block;
+	}
+	
+	#menu li a, #menu li span
+	{
+		display: inline-block;
+		padding: 0em 1.5em;
+		text-decoration: none;
+		font-size: 0.90em;
+		font-weight: 600;
+		text-transform: uppercase;
+		line-height: 60px;
+		outline: 0;
+		color: #FFF;
+	}
+	
+	#menu li:hover a, #menu li.active a, #menu li.active span
+	{
+		background: #FFF;
+		border-radius: 7px 7px 0px 0px;
+		color: #6D071A;
+	}
+	
+	#menu .current_page_item a
+	{
+	}
+
+
+
+
+#menu {
+	text-align: middle;
+	background-color: blue;
+	padding-left: 30%;
+}
+
+.title {
+	text-align: center;
+	padding-bottom: 100px;
+}
+
+
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {position: relative;}
+
+footer {
+	position: absolute;
+ 	bottom: 0;
+ 	background-color: blue;
+ 	width: 100%;
+ }
+
+ #copy {
+ 	text-align: center;
+ 	padding-left: 10%;
+ }
+
+#banner {
+	width: 99%;
+	height: 500px;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.logo{
+	width: 100%;
+}
+
+#logo{
+	width: 100px;
+}
+
+.ol{
+	font-size: 500%;
+	font-family: Verdana, Arial, Serif;
+	margin: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+.ol:hover{
+	text-shadow: 0 0 6px black;
+}
+
+
+
+.clear{
+	clear: both;
+}

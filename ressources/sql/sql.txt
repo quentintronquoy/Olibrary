@@ -1,0 +1,199 @@
+CREATE TABLE auteur 
+(
+	auteur_id NOT NULL AUTO_INCREMENT,
+    auteur_nom Varchar,
+    auteur_prenom Varchar,
+    auteur_naissance Date,
+    auteur_deces Date,
+	PRIMARY KEY (auteur_id)
+)
+
+
+CREATE TABLE livre
+(	
+	livre_exemplaire Auto_increment
+    livre_auteur Varchar,
+    livre_titre Varchar,
+    livre_editeur Varchar,
+    livre_collection Varchar,
+    livre_ISBN Varchar,
+    fournisseur_id Auto_increment
+)
+
+INSERT INTO auteur (auteur_nom, auteur_prenom, auteur_naissance, auteur_deces)
+	VALUES
+	('GROSBILL', 'Frank', '1978-06-24', '' ),
+	('BOBY', 'Stromae', '1930-01-23', '1982-03-10'),
+	('PIGEON', 'Tronqu', '1991-07-07', '2015-11-17'),
+	('AIRBUS', 'Rebecca', '1880-09-02', ''),
+	('FAGGOT', 'Jean-Pierre', '1966-06-06', ''),
+	('FAT', 'Bob', '1978-02-03', ''),
+	('IJAIL', 'Pauline', '1990-10-04', ''),
+	('REMI', 'Kevin', '1943-11-15', '2004-12-13'),
+	('JACOB', 'Michel', '1955-12-25', ''),
+	('DUGAL', 'Abdul', '1970-11-04', '2015-11-14');
+
+INSERT INTO livre (livre_auteur, livre_titre, livre_editeur, livre_collection, livre_ISBN)
+	VALUES
+	'GROSBILL', 'Les oiseaux', 'Flamarion', 'Fleuve rouge', '2-266-11156'
+	'BOBY', 'Frappe-toi', 'Grosjean', 'Idem', '3-266-11156'
+	'PIGEON', 'Ombre de glace', 'Flamarion', 'Jules', '4-266-11156'
+	'AIRBUS', 'Prophéties modernes', 'Soleil', 'Vent', '5-266-11156'
+	'FAGGOT', 'Le secret des illuminatis', 'Dartrand', 'Devin', '6-266-11156'
+	'FAT', 'Les crocodiles', 'Uflont', 'Jules', '7-266-11156'
+	'IJAIL', 'Prison à perpétuité', 'Dartrand', 'Jules', '8-266-11156'
+	'REMI', 'Ruined', 'Popy', 'Fleuve jaune', '9-266-11156'
+	JACOB, 'Larmes de sel', 'Popy', 'Fleuve jaune', '10-266-11156'
+	DUGAL, 'Le retour du pape', 'Frank', 'Michel', '11-266-11156'
+
+
+
+
+
+
+CREATE TABLE livre(
+        livre_exemplaire int (11) Auto_increment  NOT NULL ,
+        livre_auteur     Varchar (255) ,
+        livre_titre      Varchar (25) ,
+        livre_editeur    Varchar (25) ,
+        livre_collection Varchar (25) ,
+        livre_ISBN       Varchar (25) ,
+        fournisseur_id   int (11) Auto_increment  NOT NULL ,
+        emprunt_id       Int ,
+        collections_id   Int ,
+        PRIMARY KEY (livre_exemplaire )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: auteur
+#------------------------------------------------------------
+
+CREATE TABLE auteur(
+        auteur_id        int (11) Auto_increment  NOT NULL ,
+        auteur_nom       Varchar (25) ,
+        auteur_prenom    Varchar (25) ,
+        auteur_naissance Date ,
+        auteur_deces     Date ,
+        PRIMARY KEY (auteur_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: admin
+#------------------------------------------------------------
+
+CREATE TABLE admin(
+        admin_nom Varchar (25) NOT NULL ,
+        admin_mdp Varchar (25) ,
+        PRIMARY KEY (admin_nom )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: utilisateur
+#------------------------------------------------------------
+
+CREATE TABLE utilisateur(
+        utilisateur_numdecompte int (11) Auto_increment  NOT NULL ,
+        utilisateur_nom         Varchar (25) ,
+        utilisateur_prenom      Varchar (25) ,
+        utlisateur_adresse      Varchar (255) ,
+        utilisateur_numero      Varchar (25) ,
+        PRIMARY KEY (utilisateur_numdecompte )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: emprunt
+#------------------------------------------------------------
+
+CREATE TABLE emprunt(
+        emprunt_id                int (11) Auto_increment  NOT NULL ,
+        emprunt_date              Date ,
+        emprunt_retour            Date ,
+        livre_exemplaire          Numeric NOT NULL ,
+        utilisateur_numdecompte   Numeric NOT NULL ,
+        utilisateur_numdecompte_1 Int ,
+        PRIMARY KEY (emprunt_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: fournisseur
+#------------------------------------------------------------
+
+CREATE TABLE fournisseur(
+        fournisseur_id        int (11) Auto_increment  NOT NULL ,
+        fournisseur_nom       Varchar (25) ,
+        fournisseur_coordonee Varchar (25) ,
+        PRIMARY KEY (fournisseur_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: editeur
+#------------------------------------------------------------
+
+CREATE TABLE editeur(
+        editeur_id          int (11) Auto_increment  NOT NULL ,
+        editeur_nom         Varchar (25) ,
+        editeur_coordonnees Varchar (255) ,
+        PRIMARY KEY (editeur_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: collections
+#------------------------------------------------------------
+
+CREATE TABLE collections(
+        collections_id  int (11) Auto_increment  NOT NULL ,
+        collections_nom Varchar (25) ,
+        editeur_id      Int ,
+        PRIMARY KEY (collections_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: ecrit
+#------------------------------------------------------------
+
+CREATE TABLE ecrit(
+        auteur_id        Int NOT NULL ,
+        livre_exemplaire Int NOT NULL ,
+        PRIMARY KEY (auteur_id ,livre_exemplaire )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: ajoute
+#------------------------------------------------------------
+
+CREATE TABLE ajoute(
+        livre_exemplaire Int NOT NULL ,
+        admin_nom        Varchar (25) NOT NULL ,
+        PRIMARY KEY (livre_exemplaire ,admin_nom )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: fournie
+#------------------------------------------------------------
+
+CREATE TABLE fournie(
+        admin_nom      Varchar (25) NOT NULL ,
+        fournisseur_id Int NOT NULL ,
+        PRIMARY KEY (admin_nom ,fournisseur_id )
+)ENGINE=InnoDB;
+
+ALTER TABLE livre ADD CONSTRAINT FK_livre_emprunt_id FOREIGN KEY (emprunt_id) REFERENCES emprunt(emprunt_id);
+ALTER TABLE livre ADD CONSTRAINT FK_livre_collections_id FOREIGN KEY (collections_id) REFERENCES collections(collections_id);
+ALTER TABLE emprunt ADD CONSTRAINT FK_emprunt_utilisateur_numdecompte_1 FOREIGN KEY (utilisateur_numdecompte_1) REFERENCES utilisateur(utilisateur_numdecompte);
+ALTER TABLE collections ADD CONSTRAINT FK_collections_editeur_id FOREIGN KEY (editeur_id) REFERENCES editeur(editeur_id);
+ALTER TABLE ecrit ADD CONSTRAINT FK_ecrit_auteur_id FOREIGN KEY (auteur_id) REFERENCES auteur(auteur_id);
+ALTER TABLE ecrit ADD CONSTRAINT FK_ecrit_livre_exemplaire FOREIGN KEY (livre_exemplaire) REFERENCES livre(livre_exemplaire);
+ALTER TABLE ajoute ADD CONSTRAINT FK_ajoute_livre_exemplaire FOREIGN KEY (livre_exemplaire) REFERENCES livre(livre_exemplaire);
+ALTER TABLE ajoute ADD CONSTRAINT FK_ajoute_admin_nom FOREIGN KEY (admin_nom) REFERENCES admin(admin_nom);
+ALTER TABLE fournie ADD CONSTRAINT FK_fournie_admin_nom FOREIGN KEY (admin_nom) REFERENCES admin(admin_nom);
+ALTER TABLE fournie ADD CONSTRAINT FK_fournie_fournisseur_id FOREIGN KEY (fournisseur_id) REFERENCES fournisseur(fournisseur_id);
