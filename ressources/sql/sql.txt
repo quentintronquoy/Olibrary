@@ -1,4 +1,4 @@
-CREATE TABLE auteur 
+﻿CREATE TABLE auteur 
 (
 	auteur_id NOT NULL AUTO_INCREMENT,
     auteur_nom Varchar,
@@ -35,17 +35,16 @@ INSERT INTO auteur (auteur_nom, auteur_prenom, auteur_naissance, auteur_deces)
 
 INSERT INTO livre (livre_auteur, livre_titre, livre_editeur, livre_collection, livre_ISBN)
 	VALUES
-	'GROSBILL', 'Les oiseaux', 'Flamarion', 'Fleuve rouge', '2-266-11156'
-	'BOBY', 'Frappe-toi', 'Grosjean', 'Idem', '3-266-11156'
-	'PIGEON', 'Ombre de glace', 'Flamarion', 'Jules', '4-266-11156'
-	'AIRBUS', 'Prophéties modernes', 'Soleil', 'Vent', '5-266-11156'
-	'FAGGOT', 'Le secret des illuminatis', 'Dartrand', 'Devin', '6-266-11156'
-	'FAT', 'Les crocodiles', 'Uflont', 'Jules', '7-266-11156'
-	'IJAIL', 'Prison à perpétuité', 'Dartrand', 'Jules', '8-266-11156'
-	'REMI', 'Ruined', 'Popy', 'Fleuve jaune', '9-266-11156'
-	JACOB, 'Larmes de sel', 'Popy', 'Fleuve jaune', '10-266-11156'
-	DUGAL, 'Le retour du pape', 'Frank', 'Michel', '11-266-11156'
-
+	('GROSBILL', 'Les oiseaux', 'Flamarion', 'Fleuve rouge', '2-266-11156'),
+	('BOBY', 'Frappe-toi', 'Grosjean', 'Idem', '3-266-11156'),
+	('PIGEON', 'Ombre de glace', 'Flamarion', 'Jules', '4-266-11156'),
+	('AIRBUS', 'Prophéties modernes', 'Soleil', 'Vent', '5-266-11156'),
+	('FAGGOT', 'Le secret des illuminatis', 'Dartrand', 'Devin', '6-266-11156'),
+	('FAT', 'Les crocodiles', 'Uflont', 'Jules', '7-266-11156'),
+	('IJAIL', 'Prison à perpétuité', 'Dartrand', 'Jules', '8-266-11156'),
+	('REMI', 'Ruined', 'Popy', 'Fleuve jaune', '9-266-11156'),
+	('JACOB', 'Larmes de sel', 'Popy', 'Fleuve jaune', '10-266-11156'),
+	('DUGAL', 'Le retour du pape', 'Frank', 'Michel', '11-266-11156');
 
 
 

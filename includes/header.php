@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 	try {
-	$connexion = new PDO('mysql:host=localhost;dbname=test','root','');
+	$connexion = new PDO('mysql:host=localhost;dbname=library','root','');
 		}
 	
 	catch(Exception $e)
