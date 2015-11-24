@@ -56,9 +56,9 @@
                         echo "<td>" .$donnees['livre_exemplaire']."</td>" ;
                         #echo "<td>" .$donnees['livre_prenom']."</td>" ;
                         echo "<td>" .$donnees['livre_titre']."</td>" ;
-                        echo "<td><a href='../includes/modifier.php?id=".$donnees['livre_exemplaire']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
-                        echo "<a href='../includes/delete.php?id=".$donnees['livre_exemplaire']."'><button>Suppprimer</button></a>"; //Ne pas oublier de rajouter supprimer
-                        echo "<a href='../includes/affichage.php?id=".$donnees['livre_exemplaire']."'><button>Plus</button></a>";
+                        echo "<td><a href='./includes/modifier.php?id=".$donnees['livre_exemplaire']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
+                        echo "<a href='./includes/delete.php?id=".$donnees['livre_exemplaire']."'><button>Suppprimer</button></a>"; //Ne pas oublier de rajouter supprimer
+                        echo "<a href='./affichage.php?id=".$donnees['livre_exemplaire']."'><button>Plus</button></a>";
                         #echo "<td>" .$donnees['livre_prenom']."</td>" ;
                         echo "</tr>";
                         echo "</tr>";
@@ -112,7 +112,7 @@ function cache(bouton, id){
   var div=document.getElementById(id);
     if(div.style.display=="none"){
         div.style.display="block",
-        bouton.innerHTML = "Cacher la liste";
+        bouton.innerHTML = "Cacher la Liste";
 
     } else{
         div.style.display="none";
