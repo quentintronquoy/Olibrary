@@ -56,7 +56,7 @@
                         echo "<td>" .$donnees['livre_exemplaire']."</td>" ;
                         #echo "<td>" .$donnees['livre_prenom']."</td>" ;
                         echo "<td>" .$donnees['livre_titre']."</td>" ;
-                        echo "<td><a href='./includes/modifier.php?id=".$donnees['livre_exemplaire']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
+                        echo "<td><a href='./modifier.php?id=".$donnees['livre_exemplaire']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
                         echo "<a href='./includes/delete.php?id=".$donnees['livre_exemplaire']."'><button>Suppprimer</button></a>"; //Ne pas oublier de rajouter supprimer
                         echo "<a href='./affichage.php?id=".$donnees['livre_exemplaire']."'><button>Plus</button></a>";
                         #echo "<td>" .$donnees['livre_prenom']."</td>" ;

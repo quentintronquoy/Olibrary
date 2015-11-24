@@ -44,7 +44,7 @@
 
     
 
-                  <h1><a href="../admin.php">Retour</a></h1>
+                  <h1><a href="./admin.php">Retour</a></h1>
 
                   </div>
                 </div>
