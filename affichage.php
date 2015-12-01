@@ -1,4 +1,4 @@
-/<?php include_once("./includes/header.php");
+<?php include_once("./includes/header.php");
 ?>
 
 <div id="menu">
@@ -24,6 +24,7 @@
  <?php
                       $sql = $connexion->prepare("SELECT * FROM livre WHERE livre_exemplaire ='".$_GET["id"]."'");
                       $sql->execute();
+
                       while ($donnees = $sql->fetch()) {
                         //print_r($donnees);
                         echo "numero exemplaire :";

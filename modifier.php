@@ -83,22 +83,33 @@
                 <form method="POST">
                   </br></br></br></br>
                   <input type="number" name="utilisateur_id" placeholder="ID utilisateur"></br>
-                  <input type="date" name="emprunt_date"></br>
+                     <script type="text/javascript"> 
+                          d = new Date(); 
+                        document.write(d.toLocaleDateString()); 
+                      </script></br>
                   <input type="number" name="emprunt_jour" value="7"placeholder="durée emprunt"></br>
-                  <input type="submit" name="validé" value="Valide emprunt">
-
-                  
-
-
+                 
+                  <input type="submit" name="valide" value="Valide emprunt">
                 </form>
+                
                 <?php
-                if (isset($_POST['send'])) {
-                  
+                if (isset($_POST['valide']) && !empty($_POST['utilisateur_id'])) {
+                  $param = array(
+                    "utilisateur_id"=>$_POST["utilisateur_id"],
+                    "id"=>$_GET["id"],
+                    );
+
+                  $req = $connexion->prepare("INSERT INTO emprunt 
+                                                (emprunt_date, emprunt_retour, livre_exemplaire, utilisateur_numdecompte)
+                                              VALUES 
+                                                (NOW(),ADDDATE(NOW(), INTERVAL 7 DAY), ".$param["utilisateur_id"].", " .$param["id"]. ")");
+                  $req->execute($param);
+                  var_dump($req);
                 }
                 ?>
     
 
-                  <h1><a href="../admin.php">Retour</a></h1>
+                  <h1><a href="./admin.php">Retour</a></h1>
 
                   </div>
                 </div>
