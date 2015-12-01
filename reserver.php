@@ -6,12 +6,13 @@ Regardez vos emprunts : <input type="submit" value="envoyer" name="go" />
 </div>
 <?php
 
-   if(isset($_POST['go']) AND $_POST['go']=='envoyer') 
+   if(isset($_POST['go'])) 
     {
-			$query=$connexion->prepare('SELECT livre_exemplaire, emprunt_date, emprunt_retour 
+			$query=$connexion->prepare("SELECT livre_exemplaire, emprunt_date, emprunt_retour 
 			FROM emprunt
-			WHERE utilisateur_id in ('".implode("','",$_SESSION['id'])."')')
+			WHERE utilisateur_numdecompte = " . $_SESSION['id'] . "");
 			$query->execute();
+			var_dump($query);
     }  
     else 
     {

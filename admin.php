@@ -69,10 +69,11 @@
                     ?>
                     <!-- Affichage : modifier / supprimer -->
 
+                    </br></br></br></br></br>
                     <h1>Affichage</h1>
 
 
-                    <button onclick="cache(this, 'aCacher');" type="button" value="liste"/>Liste des élèves</button>
+                    <button onclick="cache(this, 'aCacher');" type="button" value="liste"/>Liste des Livres</button>
                    
                     <div id="aCacher" style="display:none;"> 
                     <?php
@@ -131,6 +132,7 @@ function cache(bouton, id){
 <input type="button" name="lien1" value="Retour" onclick="self.location.href='../index.php'" style="background-color:grey" style="color:white; font-weight:bold"onclick> 
 </div>
 
+<div>
 <form>
 <fieldset>
   <legend> Ajout d'un nouveau utilisateur :</legend></br>
@@ -142,7 +144,9 @@ function cache(bouton, id){
    <input type="submit" name="send" value="Connecter"></br>
 </fieldset>
 </form>
-
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+<div>
 <form>
 <fieldset>
   <legend> Supprimer un utilisateur :</legend></br>
@@ -151,6 +155,7 @@ function cache(bouton, id){
    <input type="submit" name="send2" value="Supprimer"></br>
 </fieldset>
 </form>
+</div>
 <?php
 
  if (isset($_POST['send'])) // Pour ajouter un utilisateur
