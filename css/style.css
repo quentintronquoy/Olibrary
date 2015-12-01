@@ -13,6 +13,7 @@
 	#menu li
 	{
 		display: inline-block;
+		font-family: Arial;
 	}
 	
 	#menu li a, #menu li span
@@ -44,8 +45,8 @@
 
 #menu {
 	text-align: middle;
-	background-color: blue;
-	padding-left: 30%;
+	background-color: #0066CC;
+	padding-left: 40%;
 }
 
 .title {
@@ -59,17 +60,17 @@ html {
   height: 100%;
 }
 body {
-  min-height: 100%;
+  min-height: 10%;
   margin: 0;
   padding: 0;
 }
 
 body {position: relative;}
 
-footer {
-	position: absolute;
- 	bottom: 0;
- 	background-color: blue;
+ {
+	position: ;
+ 	bottom: ;
+ 	background-color: #0066CC;
  	width: 100%;
  }
 
@@ -80,7 +81,7 @@ footer {
 
 #banner {
 	width: 99%;
-	height: 500px;
+	height: 250px;
 	padding-left: 5px;
 	padding-top: 5px;
 	padding-top: 5px;
@@ -112,4 +113,21 @@ footer {
 
 .clear{
 	clear: both;
+}
+
+h2 {
+	font-family: Arial;
+}
+
+p {
+	font-family: Arial;
+}
+
+fieldset {
+	font-family: Arial;
+}
+
+form {
+	position: absolute;
+	left: 39.5%;
 }
