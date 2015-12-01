@@ -82,6 +82,7 @@
          ?>
                 <form method="POST">
                   </br></br></br></br>
+                      <h1>Emprunt</h1>
                   <input type="number" name="utilisateur_id" placeholder="ID utilisateur"></br>
                      <script type="text/javascript"> 
                           d = new Date(); 
@@ -97,12 +98,13 @@
                   $param = array(
                     "utilisateur_id"=>$_POST["utilisateur_id"],
                     "id"=>$_GET["id"],
+                    "jour"=>$_POST["emprunt_jour"]
                     );
 
                   $req = $connexion->prepare("INSERT INTO emprunt 
                                                 (emprunt_date, emprunt_retour, livre_exemplaire, utilisateur_numdecompte)
                                               VALUES 
-                                                (NOW(),ADDDATE(NOW(), INTERVAL 7 DAY), ".$param["utilisateur_id"].", " .$param["id"]. ")");
+                                                (NOW(),ADDDATE(NOW(), INTERVAL ".$param["jour"]." DAY), ".$param["utilisateur_id"].", " .$param["id"]. ")");
                   $req->execute($param);
                   var_dump($req);
                 }

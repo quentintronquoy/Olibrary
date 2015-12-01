@@ -10,6 +10,7 @@
 				<li><a href="./emprunte.php" accesskey="2" title="Page de notre école">Livre emprunté</a></li>
 				<li><a href="./reserver.php" accesskey="3" title="Fiche d'inscription">Réserver un livre</a></li>
 				<li class="active"><a href="./reserver.php" accesskey="4" title="Connexion">Connexion</a></li>
+      </ul>
 	
 		
 	
@@ -17,7 +18,6 @@
 
 
 <div class="title">
-	  <h2> Connexion </h2>
 	</div>
 </br>
 		<form method="POST" action="">
@@ -31,24 +31,20 @@
 <?php
 
    
-    if (empty($_POST['nom']) || empty($_POST['mdp']) ) //Oublie d'un champ
-    {
-        $message = '<p>une erreur s\'est produite pendant votre identification.
-  Vous devez remplir tous les champs</p>
-  <p>Cliquez <a href="./index.php">ici</a> pour revenir</p>';
-    }  else //On check le mot de passe
+    if (isset($_POST['send']))
       {
 
-          $query=$connexion->prepare('SELECT utilisateur_nom, utilisateur_mdp, utilisateur_ID FROM utilisateur WHERE Enseignant_nom = :nom');
+          $query=$connexion->prepare('SELECT utilisateur_nom, utilisateur_mdp, utilisateur_numdecompte FROM utilisateur WHERE utilisateur_nom = :nom');
           $query->bindValue(':nom',$_POST['nom'], PDO::PARAM_STR);
           $query->execute();
           $data=$query->fetch();
 
-          $query1=$connexion->prepare('SELECT admin_nom, admin_mdp, admin_ID FROM admin WHERE admin_nom = :nom');
+          $query1=$connexion->prepare('SELECT admin_nom, admin_mdp, admin_id FROM admin WHERE admin_nom = :nom');
           $query1->bindValue(':nom',$_POST['nom'], PDO::PARAM_STR);
           $query1->execute();
           $data1=$query1->fetch();
 
+          var_dump($query1);
       if ($data['utilisateur_mdp'] ==  sha1($_POST['mdp'])) // Acces OK !
       {
 
@@ -63,17 +59,17 @@
     // on la démarre émoticône smile
     //session_start ();
     // on enregistre les paramètres de notre visiteur comme variables de session ($login et $mdp) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
-    $_SESSION['id'] = $data['utilisateur_ID'];
+    $_SESSION['id'] = $data['utilisateur_numdecompte'];
     $_SESSION['nom'] = $_POST['nom'];
     $_SESSION['mdp'] = $_POST['mdp'];
 
     // on redirige notre visiteur vers une page de notre section membre
-    header ('location: notes_professeur.php');
+    header ('location: reserver.php');
 
   } elseif ($data1['admin_mdp'] == sha1($_POST['mdp'])) {
   	
 
- 	$_SESSION['id'] = $data1['admin_ID'];
+ #$_SESSION['id'] = $data1['admin_ID'];
     $_SESSION['nom'] = $_POST['nom'];
     $_SESSION['mdp'] = $_POST['mdp'];
 
