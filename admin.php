@@ -124,8 +124,8 @@ function cache(bouton, id){
 
 
 <br><br>
-<input type="button" name="lien1" value="Ajouter un nouveau" onclick="self.location.href='../includes/ajouter.php'" style="background-color:grey" style="color:white; font-weight:bold"onclick> 
-<input type="button" name="lien1" value="Retour" onclick="self.location.href='./admin.php'" style="background-color:grey" style="color:white; font-weight:bold"onclick> 
+<input type="button" name="lien1" value="Ajouter un nouveau" onclick="self.location.href='./admin/ajout.php'" style="background-color:grey" style="color:white; font-weight:bold"onclick> 
+<input type="button" name="lien1" value="Retour" onclick="self.location.href='../index.php'" style="background-color:grey" style="color:white; font-weight:bold"onclick> 
 </div>
 
 </body>

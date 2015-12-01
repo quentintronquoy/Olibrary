@@ -80,7 +80,22 @@
                         }
 
          ?>
+                <form method="POST">
+                  </br></br></br></br>
+                  <input type="number" name="utilisateur_id" placeholder="ID utilisateur"></br>
+                  <input type="date" name="emprunt_date"></br>
+                  <input type="number" name="emprunt_jour" value="7"placeholder="durée emprunt"></br>
+                  <input type="submit" name="validé" value="Valide emprunt">
 
+                  
+
+
+                </form>
+                <?php
+                if (isset($_POST['send'])) {
+                  
+                }
+                ?>
     
 
                   <h1><a href="../admin.php">Retour</a></h1>
