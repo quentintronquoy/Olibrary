@@ -120,6 +120,9 @@ function cache(bouton, id){
 
     }
 }    
+
+
+
 </script>
 
 
@@ -128,6 +131,40 @@ function cache(bouton, id){
 <input type="button" name="lien1" value="Retour" onclick="self.location.href='../index.php'" style="background-color:grey" style="color:white; font-weight:bold"onclick> 
 </div>
 
+
+<fieldset>
+  <legend> Ajout d'un nouveau utilisateur </legend></br>
+   <label id="connec" for="utilisateur_nom">Nom</label><input type="text" name="utilisateur_nom" required></br></br>
+   <label id="connec" for="utilisateur_nom">Nom</label><input type="text" name="utilisateur_nom" required></br></br>
+   <label id="connec" for="utilisateur_mdp">Mot de passe</label><input type="password" name="utilisateur_mdp" required> </br></br>
+   <input type="submit" name="send" value="Connecter"></br>
+</fieldset>
+<?php
+ if (empty($_POST['utilisateur_nom']) || empty($_POST['utilisateur_prenom']) || empty($_POST['utilisateur_mdp']) ) //Oublie d'un champ
+    {
+        $message = '<p>Une erreur s\'est produite pendant votre identification.
+  Vous devez remplir tous les champs</p>
+  <p>Cliquez <a href="./index.php">ici</a> pour revenir</p>';
+    }  else //On check le mot de passe
+      {$query=$connexion->prepare('INSERT INTO utilisateur (utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_numero, utilisateur_mdp)
+  VALUES
+  ('GROSBILL', 'Frank', '1978-06-24', '' ),
+  ('BOBY', 'Stromae', '1930-01-23', '1982-03-10'),
+  ('PIGEON', 'Tronqu', '1991-07-07', '2015-11-17'),
+  ('AIRBUS', 'Rebecca', '1880-09-02', ''),
+  ('FAGGOT', 'Jean-Pierre', '1966-06-06', ''),
+  ('FAT', 'Bob', '1978-02-03', ''),
+  ('IJAIL', 'Pauline', '1990-10-04', ''),
+  ('REMI', 'Kevin', '1943-11-15', '2004-12-13'),
+  ('JACOB', 'Michel', '1955-12-25', ''),
+  ('DUGAL', 'Abdul', '1970-11-04', '2015-11-14');
+          $query->bindValue(':nom',$_POST['nom'], PDO::PARAM_STR);
+          $query->execute();
+          $data=$query->fetch();
+
+
+?>
+          
 </body>
 
 </div>

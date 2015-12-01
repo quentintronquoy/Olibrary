@@ -3,6 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
+	session_start();
 	try {
 	$connexion = new PDO('mysql:host=localhost;dbname=library','root','');
 		}
