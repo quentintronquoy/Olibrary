@@ -13,18 +13,19 @@ include_once("includes/header.php");
 
 <img id="banner" src="images/banner.jpeg">
 
-<div>
-Regardez vos emprunts : <input type="submit" value="afficher" name="go" />
-</div>
 <?php
 
 
-    		echo "OK";
 			$query=$connexion->prepare("SELECT livre_exemplaire, emprunt_date, emprunt_retour 
 			FROM emprunt
 			WHERE utilisateur_numdecompte = " . $_SESSION['id'] . "");
 			$query->execute();
-			var_dump($query);
+			$count = $query->rowCount();
+			echo $count;
+			#var_dump($query);
+
+			if ($count > 0) {
+
 			while($donnees = $query->fetch()){
 			echo "numero de l'exemplaire :";
 			echo $donnees['livre_exemplaire']."</br>";
@@ -33,8 +34,7 @@ Regardez vos emprunts : <input type="submit" value="afficher" name="go" />
 			echo "date de retour :";
 			echo $donnees['emprunt_retour']."</br>";
 												}
-       if(isset($_POST['go'])) 
-    {		}  
+											}
     else
     {
 	        echo '<p> Vous n\'avez pas encore emprunté de livre</p>
