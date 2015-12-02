@@ -133,21 +133,21 @@ function cache(bouton, id){
 </div>
 
 <div>
-<form>
+<form method="POST">
 <fieldset>
   <legend> Ajout d'un nouveau utilisateur :</legend></br>
-   <label id="connec" for="utilisateur_prenom">Prenom</label><input type="text" name="prenom" required></br></br>
-   <label id="connec" for="utilisateur_nom">Nom</label><input type="text" name="nom" required></br></br>
-   <label id="connec" for="utilisateur_adresse">Adresse</label><input type="text" name="adresse" required> </br></br>
-   <label id="connec" for="utilisateur_numero">Numero</label><input type="text" name="numero" required> </br></br>
-   <label id="connec" for="utilisateur_mdp">Mot de passe</label><input type="password" name="mdp" required> </br></br>
-   <input type="submit" name="send" value="Connecter"></br>
+   <label id="connec" for="utilisateur_prenom">Prenom :</label><input type="text" name="prenom"></br></br>
+   <label id="connec" for="utilisateur_nom">Nom :</label><input type="text" name="nom"></br></br>
+   <label id="connec" for="utilisateur_adresse">Adresse :</label><input type="text" name="adresse"> </br></br>
+   <label id="connec" for="utilisateur_numero">Numero :</label><input type="text" name="numero"> </br></br>
+   <label id="connec" for="utilisateur_mdp">Mot de passe :</label><input type="password" name="mdp"> </br></br>
+   <input type="submit" name="validation" value="ajouter"></br>
 </fieldset>
 </form>
 </div>
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 <div>
-<form>
+<form method="POST">
 <fieldset>
   <legend> Supprimer un utilisateur :</legend></br>
    <label id="connec" for="utilisateur_prenom2">Prenom</label><input type="text" name="prenom2" required></br></br>
@@ -157,24 +157,37 @@ function cache(bouton, id){
 </form>
 </div>
 <?php
+// $param2 = array('utilisateur_nom'=>'a',
+//   'utilisateur_prenom'=>'a',
+//   'utilisateur_adresse'=>'a',
+//   'utilisateur_numero'=>'1',
+//   'utilisateur_mdp'=>'a'
+//   );
+// $query=$connexion->prepare('INSERT INTO utilisateur(utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_numero, utilisateur_mdp)
+//       VALUES (:utilisateur_nom, :utilisateur_prenom, :utilisateur_adresse, :utilisateur_numero, :utilisateur_mdp)');
+//               $query->execute($param2);
+//               var_dump($query);
 
- if (isset($_POST['send'])) // Pour ajouter un utilisateur
-{ 
-     if (empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['mdp']) ) // Oubli d'un champ
-        {
-            $message = '<p>Une erreur s\'est produite pendant votre ajout.
-      Vous devez remplir tous les champs</p>
-      <p>Cliquez <a href="./index.php">ici</a> pour revenir</p>';
-        }  else // On check le mot de passe 
-        {
-            $query=$connexion->prepare('INSERT INTO utilisateur (utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_numero, utilisateur_mdp)
-      VALUES :nom, :prenom, 
-:adresse, :numero, :mdp');
-            $param2 =  array(':nom' => $_POST['nom'], ':prenom' => $_POST['prenom'], ':adresse' => $_POST['adresse'],':numero' => $_POST['mdp'] );
+ if (isset($_POST['validation'])){ // Pour ajouter un utilisateur
+ 
+
+if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['adresse']) AND !empty($_POST['numero']) AND !empty($_POST['mdp'])) { 
+          echo "<h1>Compte créer félicitation !</h1>";
+   
+            $query=$connexion->prepare('INSERT INTO utilisateur(utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_numero, utilisateur_mdp)
+      VALUES (:nom, :prenom, :adresse, :numero, :mdp)');
+            $param2 =  array(
+              'nom' => $_POST['nom'],
+              'prenom' => $_POST['prenom'],
+              'adresse' => $_POST['adresse'],
+              'numero' => $_POST['numero'],
+              'mdp' => sha1($_POST['mdp']) 
+              );
               $query->execute($param2);
 
-        }
+} else {echo "<h1>Champ incomplet</h1>";}
 }
+
 if (isset($_POST['send2']))  // Pour supprimer un utilisateur
 {
      if (empty($_POST['nom2']) || empty($_POST['prenom2']) ) // Oubli d'un champ
@@ -184,7 +197,7 @@ if (isset($_POST['send2']))  // Pour supprimer un utilisateur
       <p>Cliquez <a href="./index.php">ici</a> pour revenir</p>';
         }  else // On check le mot de passe 
         {
-            $query=$connexion->prepare('DELETE FROM utilisateur WHERE utilisateur_nom= :nom2 AND utilisateur_prenom= :prenom2');
+            $query=$connexion->prepare('DELETE FROM utilisateur WHERE utilisateur_nom = :nom2 AND utilisateur_prenom= :prenom2');
               $param3 = array(':nom2' => $_POST['nom2'], ':prenom2' => $_POST['prenom2']);
               $query->execute($param3);
         }
