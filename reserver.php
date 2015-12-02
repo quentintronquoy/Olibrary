@@ -21,8 +21,8 @@ include_once("includes/header.php");
 			WHERE utilisateur_numdecompte = " . $_SESSION['id'] . "");
 			$query->execute();
 			$count = $query->rowCount();
-			echo $count;
-			#var_dump($query);
+			// echo $count;
+			// var_dump($query);
 
 			if ($count > 0) {
 
