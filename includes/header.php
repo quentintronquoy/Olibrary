@@ -37,4 +37,4 @@ $tronquoy = "noob";
 			
 			
 			<div class="clear"></div>
-			<img id="logo" src="images/logo.png">
+			<img id="logo" src="images/logo2.png">

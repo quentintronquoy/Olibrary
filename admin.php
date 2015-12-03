@@ -131,7 +131,7 @@ function cache(bouton, id){
 </div>
 
 <div>
-<form method="POST">
+<form method="POST" id="ajout">
 <fieldset>
   <legend> Ajout d'un nouveau utilisateur :</legend></br>
    <label id="connec" for="utilisateur_prenom">Prenom :</label><input type="text" name="prenom"></br></br>
@@ -145,7 +145,7 @@ function cache(bouton, id){
 </div>
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 <div>
-<form method="POST">
+<form method="POST" id="supprimer">
 <fieldset>
   <legend> Supprimer un utilisateur :</legend></br>
    <label id="connec" for="utilisateur_prenom2">Prenom</label><input type="text" name="prenom2" required></br></br>
