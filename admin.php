@@ -57,7 +57,16 @@
                         echo "<td><a href='./modifier.php?id=".$donnees['livre_exemplaire']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
                         echo "<a href='./includes/delete.php?id=".$donnees['livre_exemplaire']."'><button>Suppprimer</button></a>"; //Ne pas oublier de rajouter supprimer
                         echo "<a href='./affichage.php?id=".$donnees['livre_exemplaire']."'><button>Plus</button></a>";
-                        #echo "<td>" .$donnees['livre_prenom']."</td>" ;
+                        $test = $connexion->prepare("SELECT * FROM emprunt WHERE livre_exemplaire = '".$donnees['livre_exemplaire']."'");
+                        $test->execute();
+                        $count = $test->rowcount();
+                        $donneesemprunt = $test->fetch(PDO::FETCH_ASSOC);
+                        if ($count==0) {
+                        echo "<td>non emprunté</td>";
+                        ;
+                        } else
+                        {echo "<td>emprunté</td>";
+                        echo "<td>".$donneesemprunt['emprunt_retour']."</td>";}
                         echo "</tr>";
                         echo "</tr>";
                       }
@@ -89,12 +98,18 @@
                         echo "<td><a href='./modifier.php?id=".$donnees['livre_exemplaire']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
                         echo "<a href='./includes/delete.php?id=".$donnees['livre_exemplaire']."'><button>Suppprimer</button></a>"; //Ne pas oublier de rajouter supprimer
                         echo "<a href='./affichage.php?id=".$donnees['livre_exemplaire']."'><button>Plus</button></a>";
-                        #echo "<td>" .$donnees['livre_prenom']."</td>" ;
+                        $test = $connexion->prepare("SELECT * FROM emprunt WHERE livre_exemplaire = '".$donnees['livre_exemplaire']."'");
+                        $test->execute();
+                        $count = $test->rowcount();
+                        $donneesemprunt = $test->fetch(PDO::FETCH_ASSOC);
+                        if ($count==0) {
+                        echo "<td>non emprunté</td>";
+                        ;
+                        } else
+                        {echo "<td>Retour le :</td>";
+                        echo "<td>".$donneesemprunt['emprunt_retour']."</td>";}
                         echo "</tr>";
-
-
-
-                        //echo "<a href='modifier.php?id=".$donnees['id']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
+                      //echo "<a href='modifier.php?id=".$donnees['id']."'><button>Modifier</button></a>"; //Ne pas oublier de creer modifier 
                         //echo "<a href='delete.php?id=".$donnees['id']."'><button>Suppprimer</button></a>"; //Ne pas oublier de rajouter supprimer
                         echo"</tr>";
 
