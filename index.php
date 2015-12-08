@@ -13,7 +13,7 @@
 	
 </div>
 
-<img id="banner" src="images/banner.jpeg">
+<img id="banner" src="images/biblio.jpg">
 
 
 <body>
@@ -27,7 +27,7 @@
 		</p>
 </div>
 
-<form method="POST" action="">
+<form method="POST" action="" id="carre">
 
 <fieldset>
 	<legend>Informations</legend></br>

@@ -31,7 +31,7 @@ include_once("../includes/header.php");
 
     <h1>Recherche Etudiant</h1>
     <p>
-      <form method="POST">
+      <form method="POST" id="carre">
        Recherche :<input type="text" name="nom">          
        <input id="connect"  type="submit" name="send" value="Rechercher">
      </form>
