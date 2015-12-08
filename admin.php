@@ -21,6 +21,7 @@
 
 <div class="title">
 <h1>Recherche D'un Livre</h1>
+<a href="liste.php">Liste des Emprunts</a>
     <p>
       <form method="POST">
        Recherche :<input type="text" name="nom">          
@@ -48,7 +49,7 @@
                         'nom'=>$nom, 
                         );
                       $sql->execute($param);
-                      echo "<table border='1'>";
+                      echo "<table border='1' id='liste'>";
                       while ($donnees = $sql->fetch()) {
                         echo "<tr>";
                         echo "<td>" .$donnees['livre_exemplaire']."</td>" ;
@@ -67,8 +68,8 @@
                     ?>
                     <!-- Affichage : modifier / supprimer -->
 
-                    </br></br></br></br></br>
-                    <h1>Affichage</h1>
+                    
+                    <h1 id="affichage">Affichage</h1>
 
 
                     <button onclick="cache(this, 'aCacher');" type="button" value="liste"/>Liste des Livres</button>
@@ -143,7 +144,7 @@ function cache(bouton, id){
 </fieldset>
 </form>
 </div>
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
 <div>
 <form method="POST" id="supprimer">
 <fieldset>
@@ -198,9 +199,21 @@ if (isset($_POST['send2']))  // Pour supprimer un utilisateur
             $query=$connexion->prepare('DELETE FROM utilisateur WHERE utilisateur_nom = :nom2 AND utilisateur_prenom= :prenom2');
               $param3 = array(':nom2' => $_POST['nom2'], ':prenom2' => $_POST['prenom2']);
               $query->execute($param3);
+              echo "utilisateur supprimé !";
         }
 }
 ?>
+
+
+
+    
+
+
+
+
+
+
+
           
 </body>
 

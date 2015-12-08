@@ -86,6 +86,7 @@ body {position: relative;}
 	padding-top: 5px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	border-radius: 10px;
 }
 
 .logo{
@@ -127,7 +128,30 @@ fieldset {
 	font-family: Arial;
 }
 
-form {
+#carre {
 	position: absolute;
 	left: 39.5%;
+}
+
+#ajout {
+	float: left;
+	margin-left: 30%;
+	padding-bottom: 5%;
+}
+
+#supprimer {
+	float: left;
+}
+
+#affichage {
+	margin-top: 5%;
+}
+
+#aCacher {
+	margin-left: 40%;
+	margin-top: 2%;
+}
+
+#liste {
+	margin-left: 40%;
 }

@@ -20,7 +20,7 @@
 	  <h2> Ajout d'un livre </h2>
 	</div>
 </br>
-		<form method="POST" action="">
+		<form method="POST" action="" id="carre">
 
 <fieldset>
 	<legend>Informations</legend></br>
