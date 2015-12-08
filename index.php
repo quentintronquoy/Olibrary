@@ -76,8 +76,16 @@ if (isset($_POST['send']) && !empty($_POST['livre_titre'])) {
 }
 
 ?>
-
-
+<br><br>
+<br><br>
+<div> <h2> Compteur de livres empruntés : <h2>
+<?php 
+                  $req = $connexion->prepare("SELECT * FROM emprunt ");
+                  $req->execute();
+                  $count = $req->rowCount();
+                  echo "Nombre de livres total empruntés est " . $count . ".";
+?>
+</div>
 
 
 
