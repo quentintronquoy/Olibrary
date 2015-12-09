@@ -65,14 +65,11 @@ body {
   padding: 0;
 }
 
-body {position: relative;}
+body {
+	position: relative;
+}
 
- {
-	position: ;
- 	bottom: ;
- 	background-color: #0066CC;
- 	width: 100%;
- }
+ 
 
  #copy {
  	text-align: center;

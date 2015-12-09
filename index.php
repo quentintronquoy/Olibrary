@@ -83,7 +83,7 @@ if (isset($_POST['send']) && !empty($_POST['livre_titre'])) {
                   $req = $connexion->prepare("SELECT * FROM emprunt ");
                   $req->execute();
                   $count = $req->rowCount();
-                  echo "Nombre de livres total empruntés est " . $count . ".";
+                  echo "Le nombre de livres total empruntés est " . $count . ".";
 ?>
 </div>
 
